@@ -222,7 +222,7 @@ public class ConfigBuilder {
 				String configType3 = omElement.getAttributeValue(new QName(
 						"locale"));
 				String configType4 = omElement.getAttributeValue(new QName(
-						"email"));
+						"emailContentType"));
 				String configFinal = configType1 + "|" + configType2 + "|" + configType3 + "|" + configType4;
 				if (StringUtils.isNotBlank(configFinal)) {
 					emailConfig.setProperty(configFinal, loadEmailConfig(omElement));

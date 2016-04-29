@@ -37,6 +37,9 @@
     String emailBody = request.getParameter("emailBody");
     String emailFooter = request.getParameter("emailFooter");
     String templateName = request.getParameter("templateName");
+    String emailContentType =request.getParameter("emailContentType");
+
+    String templateFinalName = templateName + "." + emailContentType;
 
     EmailConfigDTO emailConfig = null;
     EmailTemplateDTO templateChanged = new EmailTemplateDTO();
@@ -50,8 +53,11 @@
     if (StringUtils.isNotBlank(emailFooter)) {
         templateChanged.setFooter(emailFooter);
     }
-    if (StringUtils.isNotBlank(templateName)) {
-        templateChanged.setName(templateName);
+    if (StringUtils.isNotBlank(templateFinalName)) {
+        templateChanged.setName(templateFinalName);
+    }
+    if (StringUtils.isNotBlank(emailContentType)) {
+        templateChanged.setEmailContentType(emailContentType);
     }
 
     try {

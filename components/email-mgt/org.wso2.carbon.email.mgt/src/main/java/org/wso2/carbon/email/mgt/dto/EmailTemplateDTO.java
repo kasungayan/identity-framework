@@ -33,7 +33,7 @@ public class EmailTemplateDTO implements Serializable {
 	private String name;
 	private String displayName;
 	private String locale;
-	private String emailType;
+	private String emailContentType;
 
 
 	public String getSubject() {
@@ -84,12 +84,12 @@ public class EmailTemplateDTO implements Serializable {
 		this.locale = locale;
 	}
 
-	public String getemailType() {
-		return emailType;
+	public String getEmailContentType() {
+		return emailContentType;
 	}
 
-	public void setemailType(String emailType) {
-		this.emailType= emailType;
+	public void setEmailContentType(String emailContentType) {
+		this.emailContentType = emailContentType;
 	}
 
 

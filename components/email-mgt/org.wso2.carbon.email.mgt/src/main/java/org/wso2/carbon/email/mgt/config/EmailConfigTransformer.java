@@ -53,14 +53,14 @@ public class EmailConfigTransformer {
         String emailTemplateLanguage;
         String emailTemplateDisplayType;
         String emailTemplateLocale;
-        String emailType;
+        String emailContentType;
 
         for (String key : keySet) {
             EmailTemplateDTO template = new EmailTemplateDTO();
             String[] emailTemplateKeyArray = key.split("\\|");
             template.setName(emailTemplateKeyArray[0]);
             emailTemplateDisplayType = emailTemplateKeyArray[1];
-            emailType = emailTemplateKeyArray[2];
+            emailContentType = emailTemplateKeyArray[2];
 
             // Retrieves the content of each email template.
             String[] emailTemplateContent = props.getProperty(key).split("\\|");
@@ -87,8 +87,7 @@ public class EmailConfigTransformer {
             template.setBody(body);
             template.setFooter(footer);
             template.setDisplayName(emailTemplateDisplayType);
-            template.setemailType(emailType);
-
+            template.setEmailContentType(emailContentType);
 
             emailTemplates.add(template);
         }

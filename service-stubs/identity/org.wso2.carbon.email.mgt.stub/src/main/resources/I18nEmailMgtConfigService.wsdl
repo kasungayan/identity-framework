@@ -20,6 +20,13 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="addEmailConfig">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="emailTemplate" nillable="true" type="ax2113:EmailTemplateDTO"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="getEmailConfig">
                 <xs:complexType>
                     <xs:sequence/>
@@ -29,13 +36,6 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2113:EmailTemplateDTO"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="addEmailConfig">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="emailTemplate" nillable="true" type="ax2113:EmailTemplateDTO"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -52,7 +52,7 @@
                 <xs:sequence>
                     <xs:element minOccurs="0" name="body" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="displayName" nillable="true" type="xs:string"/>
-                    <xs:element minOccurs="0" name="emailType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="emailContentType" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="footer" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="locale" nillable="true" type="xs:string"/>
                     <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>

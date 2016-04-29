@@ -62,11 +62,15 @@
     String templateName0 = null;
     String displayLanguage = null;
     String displayLanguage0 = null;
+    String emailContentType = null;
+    String emailContentType0 = null;
+    String[] emailContentTypeArr = {"text/html", "text/plain"};
+
 
     if (username == null) {
         username = (String) request.getSession().getAttribute("logged-user");
     }
-    String BUNDLE = "org.wso2.carbon.i18n.mgt.ui.i18n.Resources";
+    String BUNDLE = "org.wso2.carbon.email.mgt.ui.i18n.Resources";
     ResourceBundle resourceBundle = ResourceBundle.getBundle(BUNDLE, request.getLocale());
 
     try {
@@ -96,7 +100,7 @@
         jQuery('#emailBody').val($selectedOption.attr('data-body'));
         jQuery('#emailFooter').val($selectedOption.attr('data-footer'));
         jQuery('#templateName').val($selectedOption.attr('data-templateName'));
-
+        jQuery('#emailContentType').val($selectedOption.attr('data-emailContentType'));
     }
 
     function updateLocale(elm) {
@@ -131,7 +135,7 @@
 <script type="text/javascript" src="../carbon/admin/js/breadcrumbs.js"></script>
 <script type="text/javascript" src="../carbon/admin/js/cookies.js"></script>
 
-<fmt:bundle basename="org.wso2.carbon.i18n.mgt.ui.i18n.Resources">
+<fmt:bundle basename="org.wso2.carbon.email.mgt.ui.i18n.Resources">
     <carbon:breadcrumb label="email.template"
                        resourceBundle="org.wso2.carbon.identity.user.profile.ui.i18n.Resources"
                        topPage="true" request="<%=request%>"/>
@@ -201,12 +205,14 @@
                                             emailBody0 = template.getBody();
                                             emailFooter0 = template.getFooter();
                                             templateName0 = template.getName();
+                                            emailContentType0 = template.getEmailContentType();
                                         }
 
                                         emailSubject = template.getSubject();
                                         emailBody = template.getBody();
                                         emailFooter = template.getFooter();
                                         templateName = template.getName();
+                                        emailContentType = template.getEmailContentType();
 
                                 %>
                                 <option
@@ -214,10 +220,33 @@
                                         data-subject="<%=Encode.forHtmlAttribute(emailSubject)%>"
                                         data-body="<%=Encode.forHtmlAttribute(emailBody)%>"
                                         data-footer="<%=Encode.forHtmlAttribute(emailFooter)%>"
-                                        data-templateName="<%=Encode.forHtmlAttribute(templateName)%>">
+                                        data-templateName="<%=Encode.forHtmlAttribute(templateName)%>"
+                                        data-emailContentType="<%=Encode.forHtmlAttribute(emailContentType)%>">
                                     <%=
                                     Encode.forHtmlContent(template.getDisplayName())%>
                                 </option>
+                                <%
+                                    }
+                                %>
+                            </select></td>
+                        </tr>
+                        <%--<tr>--%>
+                            <%--<td><fmt:message key="emailContentType"/></td>--%>
+                            <%--<td><input type="text" name="emailContentType" id="emailContentType" style="width : 500px;"--%>
+                                       <%--value="<%=Encode.forHtmlAttribute(emailContentType0)%>"/></td>--%>
+                        <%--</tr>--%>
+                        <tr>
+                            <td class="leftCol-med labelField"><fmt:message key="email.template.content"/></td>
+
+                            <td><select id="emailContentType" name="emailContentType" class="leftCol-med">
+                                <%
+                                    for(String currentType : emailContentTypeArr){
+                                        String currentSelectedAttr = "";
+                                        if(currentType.equals(emailContentType0)){
+                                            currentSelectedAttr = "selected=\"selected\"";
+                                        }
+                                %>
+                                    <option <%=Encode.forHtmlAttribute(currentSelectedAttr)%>><%=Encode.forHtmlContent(currentType)%></option>
                                 <%
                                     }
                                 %>

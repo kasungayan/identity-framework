@@ -41,7 +41,7 @@
 
 <%@page import="org.wso2.carbon.user.core.UserCoreConstants" %>
 <fmt:bundle
-        basename="org.wso2.carbon.i18n.mgt.ui.i18n.Resources">
+        basename="org.wso2.carbon.email.mgt.ui.i18n.Resources">
     <carbon:breadcrumb label="email.add"
                        resourceBundle="org.wso2.carbon.identity.user.profile.ui.i18n.Resources"
                        topPage="true" request="<%=request%>"/>
@@ -116,7 +116,13 @@
                                     <td class="leftCol-big"><input type="text" name="emailType" id="emailType"
                                                                    class="text-box-big"/></td>
                                 </tr>
-
+                                <tr>
+                                    <td class="leftCol-med labelField"><fmt:message key="email.template.contentType"/></td>
+                                    <td><select id="emailContentType" name="emailContentType" class="leftCol-med">
+                                        <option value="en">text/html</option>
+                                        <option value="es">text/plain</option>
+                                    </select></td>
+                                </tr>
                                 <tr>
                                     <td class="leftCol-med labelField"><fmt:message key="email.template.locale"/></td>
                                     <td><select id="emailLocale" name="emailLocale" class="leftCol-med">

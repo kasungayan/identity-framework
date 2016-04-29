@@ -42,7 +42,7 @@
             <region>region1</region>
             <order>1</order>
             <style-class>manage</style-class>
-            <icon>../i18n-mgt/images/add_email.gif</icon>
+            <icon>../email-mgt/images/add_email.gif</icon>
             <require-permission>/permission/admin/configure/security</require-permission>
         </menu>
         <menu>

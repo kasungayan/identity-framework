@@ -80,9 +80,10 @@ public class RegistryConfigReader implements ConfigReader {
 					String[] emailTemplateFolderArray = emailTemplateResourcePath.split("/");
 					String emailTemplateFileName = emailTemplateFolderArray[4];
 					byte[] emailTemplateContentArray = (byte[]) emailTemplateResource.getContent();
-					String emailType = emailTemplateResource.getMediaType();
+					String emailContentType = emailTemplateResource.getMediaType();
 					String emailTemplateLocaleContent = new String(emailTemplateContentArray, Charset.forName("UTF-8"));
-					String emailTemplateKey = emailTemplateFileName + "|" + emailTemplateDisplayValue + "|" + emailType;
+					String emailTemplateKey = emailTemplateFileName + "|" + emailTemplateDisplayValue + "|" +
+							emailContentType;
 					readerProps.put(emailTemplateKey, emailTemplateLocaleContent);
 				}
 			}
