@@ -35,11 +35,11 @@
 
 <%
     String emailType = request.getParameter("emailType");
+    String emailContentType = request.getParameter("emailContentType");
     String emailLocale = request.getParameter("emailLocale");
     String emailSubject = request.getParameter("emailSubject");
     String emailBody = request.getParameter("emailBody");
     String emailFooter = request.getParameter("emailFooter");
-    String emailContentType = request.getParameter("emailContentType");
 
     String templateName = emailType + "." + emailLocale + "." + emailContentType;
     EmailConfigDTO emailConfig = null;

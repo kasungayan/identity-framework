@@ -110,21 +110,39 @@
                     <tr>
                         <td class="formRow">
                             <table class="normal" cellspacing="0">
+                                    <%--<tr>--%>
+                                    <%--<td class="leftCol-small"><fmt:message key='email.template.type'/><font color="red">*</font>--%>
+                                    <%--</td>--%>
+                                    <%--<td class="leftCol-big"><input type="text" name="emailType" id="emailType"--%>
+                                    <%--class="text-box-big"/></td>--%>
+                                    <%--</tr>--%>
                                 <tr>
-                                    <td class="leftCol-small"><fmt:message key='email.template.type'/><font color="red">*</font>
-                                    </td>
-                                    <td class="leftCol-big"><input type="text" name="emailType" id="emailType"
-                                                                   class="text-box-big"/></td>
+                                    <td class="leftCol-med labelField"><fmt:message
+                                            key="email.template.type"/></td>
+                                    <td><select id="" name="emailType" class="leftCol-med">
+                                        <option>Password Reset</option>
+                                        <option>AccountId Recovery</option>
+                                        <option>Account Confirmation</option>
+                                        <option>Temporary Password</option>
+                                        <option>One Time Password</option>
+                                        <option>Ask Password</option>
+                                        <option>Account UnLock</option>
+                                        <option>Account Enable</option>
+                                        <option>Account Disable</option>
+                                    </select></td>
                                 </tr>
+
                                 <tr>
-                                    <td class="leftCol-med labelField"><fmt:message key="email.template.contentType"/></td>
+                                    <td class="leftCol-med labelField"><fmt:message
+                                            key="email.template.contentType"/></td>
                                     <td><select id="emailContentType" name="emailContentType" class="leftCol-med">
-                                        <option value="en">text/html</option>
-                                        <option value="es">text/plain</option>
+                                        <option>text/html</option>
+                                        <option>text/plain</option>
                                     </select></td>
                                 </tr>
                                 <tr>
-                                    <td class="leftCol-med labelField"><fmt:message key="email.template.locale"/></td>
+                                    <td class="leftCol-med labelField"><fmt:message
+                                            key="email.template.locale"/></td>
                                     <td><select id="emailLocale" name="emailLocale" class="leftCol-med">
                                         <option value="en">English</option>
                                         <option value="es">Spanish</option>
